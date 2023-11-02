@@ -1,23 +1,52 @@
 import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Gallery from './components/gallery/gallery.component';
 
-function App() {
+const App = () => {
+  const images = [
+    {
+      id: 1,
+      imageUrl: '/images/image-1.webp',
+    },
+    {
+      id: 2,
+      imageUrl: '/images/image-2.webp',
+    },{
+      id: 3,
+      imageUrl: '/images/image-3.webp',
+    },{
+      id: 4,
+      imageUrl: '/images/image-4.webp',
+    },{
+      id: 5,
+      imageUrl: '/images/image-5.webp',
+    },{
+      id: 6,
+      imageUrl: '/images/image-6.webp',
+    },{
+      id: 7,
+      imageUrl: '/images/image-7.webp',
+    },{
+      id: 8,
+      imageUrl: '/images/image-8.webp',
+    },{
+      id: 9,
+      imageUrl: '/images/image-9.webp',
+    },{
+      id: 10,
+      imageUrl: '/images/image-10.jpeg',
+    },{
+      id: 11,
+      imageUrl: '/images/image-11.jpeg',
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='gallery-container'>
+      {/* {images.map((item) => ( // No need to destructure here
+        <Gallery key={item.id} item={item} /> // Pass the entire item object
+      ))} */}
+      <Gallery images={images} />
+      
     </div>
   );
 }
