@@ -87,7 +87,7 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
                     alt=""
                     id={item.id}
                     className={`gallery-image ${
-                      getColumnNumber(index, 11) === 4 ? "big-image" : ""
+                      getColumnNumber(index, 11) === 1 ? "big-image" : ""
                     }`}
                     draggable={true}
                     onDragStart={(ev) => handleDrag(ev, item.id)}
