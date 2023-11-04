@@ -30,7 +30,7 @@ const App = () => {
       order: 5,
     },
     {
-      id: 6,
+      id: 6, 
       imageUrl: "./images/image-6.webp",
       order: 6,
     },
