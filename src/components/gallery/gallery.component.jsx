@@ -22,6 +22,9 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
     setImages(remainingImages);
     console.log(imagesAll);
     setSelectedImages([]);
+    imagesAll.forEach((item, index) => {
+      item.order = index + 1;
+    });
   };
 
   useEffect(() => {
@@ -68,12 +71,13 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
         columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1200: 4 }}
       >
         <Masonry columnsCount={4} gutter="2px" position="center">
-          {imagesAll.map((item, index) => (
+          {imagesAll
+            .map((item, index) => (
             <label className="image-label">
               <div
-                className={`masonry-item ${
-                  selectedImages.includes(item.id) ? "selected" : ""
-                }`}
+                    className={`masonry-item ${
+            selectedImages.includes(item.id) ? "selected" : ""
+          } ${index === 0 ? "first-column" : ""}`}
               >
                 <div className="image-container" key={item.id}>
                   <input
@@ -87,7 +91,7 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
                     alt=""
                     id={item.id}
                     className={`gallery-image ${
-                      getColumnNumber(index, 11) === 1 ? "big-image" : ""
+                      getColumnNumber(index, 11) === 4 ? "big-image" : ""
                     }`}
                     draggable={true}
                     onDragStart={(ev) => handleDrag(ev, item.id)}
