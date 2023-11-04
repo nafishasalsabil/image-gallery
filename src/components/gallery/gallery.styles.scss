@@ -1,7 +1,3 @@
-
-.container-fluid{
-    width: 80%;
-}
 .masonry-item {
     text-align: center;
     border: 5px solid rgb(231, 231, 231);
@@ -24,8 +20,6 @@
     right: 1px;
     bottom: 1px;
     border: 5px solid rgb(35, 35, 114);
-    /* Inner border */
-
 }
 
 .masonry-item:hover {
@@ -34,19 +28,42 @@
 
 .gallery-image.big-image {
     width: 52vh;
-    padding: 2em;
-    margin-bottom: 0.8em;
 
+    @media (max-width: 1920px) {
+        width: 100%;
+    }
+
+    margin-top: 1.2em;
+    margin-bottom: 1.1em;
+    padding-left: 2em;
+    padding-right: 2em;
 
 }
+
+.file-num {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.clicked-file {
+    font-size: 0.5;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
 
 .gallery-image {
     width: 26vh;
     padding: 2em;
 }
 
+.gallery-image:hover {
+    cursor: grab;
+}
+
 .btn {
     float: right;
+    margin-top: 2px;
 }
 
 .title {
