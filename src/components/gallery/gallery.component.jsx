@@ -5,7 +5,6 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
   const [selectedImages, setSelectedImages] = useState([]);
   var [imagesAll, setImages] = useState([]);
   imagesAll = imagesAll.slice().sort((a, b) => a.order - b.order);
-  console.log(images);
 
   const handleSelectAll = () => {
     if (selectedImages.length > 0) {
@@ -20,7 +19,6 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
       (item) => !selectedImages.includes(item.id)
     );
     setImages(remainingImages);
-    console.log(imagesAll);
     setSelectedImages([]);
     imagesAll.forEach((item, index) => {
       item.order = index + 1;

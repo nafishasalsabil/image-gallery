@@ -62,8 +62,6 @@ const App = () => {
   ]);
   const handleDrag = (ev, id) => {
     setDragId(id);
-    console.log(dragId);
-    console.log(images);
   };
 
   const handleDrop = (ev) => {
@@ -78,17 +76,13 @@ const App = () => {
         var curV = ev.currentTarget.id;
         if (box.id === dragId) {
           box.order = dropBoxOrder;
-          console.log("hi");
         }
         if (box.id === Number(curV)) {
           box.order = dragBoxOrder;
-          console.log(box.order);
         }
         return box;
       });
-
       setImages(newBoxState);
-      console.log(images);
     }
   };
 
