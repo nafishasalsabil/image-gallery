@@ -1,7 +1,6 @@
 import "./gallery.styles.scss";
 import React, { useState, useEffect } from "react";
 
-
 const Gallery = ({ images, handleDrag, handleDrop }) => {
   const [selectedImages, setSelectedImages] = useState([]);
   var [imagesAll, setImages] = useState([]);
@@ -107,68 +106,73 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
   //     </ResponsiveMasonry>
   //   </div>
   // );
-  return(<div>
-  <div class="container-fluid first">
-
-     <div className="row mt-3 mb-4 px-2">
-         <div className="col col-lg-6">
-           <h2 className="title">Image Gallery</h2>
-           <span className="file-num">
-             {selectedImages.length === 1
-               ? selectedImages.length + " file selected"
-               : selectedImages.length + " files selected"}
-/         </span>
-           <span className="clicked-file">(Click on the image to select)</span>
-         </div>
-         <div className="col col-lg-6">
-           <button
-             className="btn btn-outline-dark mx-1"
-             onClick={handleSelectAll}
-           >
-             {selectedImages.length > 0 ? "Clear Selection" : "Select All"}
-           </button>
-           {selectedImages.length > 0 && (
-             <button
-             className="btn btn-outline-danger mx-1"
-               onClick={handleDeleteSelected}
-             >
-               Delete Selected Items
-             </button>
-           )}
-         </div>
-      </div></div>
-      <div class="container-fluid second">
-   {imagesAll.map((item, index) => (
-  
-    <div className={`item ${
-            selectedImages.includes(item.id) ? "selected" : ""}`}>
-              <label className="image-label">
-            <div className="image-container">
-            <input
-                    type="checkbox"
-                    checked={selectedImages.includes(item.id)}
-                    onChange={() => handleImageClick(item.id)}
-                    style={{ display: "none" }}
-                    id={item.id}
-                    draggable={true}
-                    onDragStart={(ev) => handleDrag(ev, item.id)}
-                    onDragOver={(ev) => ev.preventDefault()}
-                    onDrop={(ev) => handleDrop(ev)}
-                  />
-      <img className="gallery-image" src={item.imageUrl} alt=""/>
+  return (
+    <div>
+      <div class="container-fluid first">
+        <div className="row mt-3 mb-4 px-2">
+          <div className="col col-lg-6">
+            <h2 className="title">Image Gallery</h2>
+            <span className="file-num">
+              {selectedImages.length === 1
+                ? selectedImages.length + " file selected"
+                : selectedImages.length + " files selected"}
+            </span>
+            <span className="clicked-file">(Click on the image to select)</span>
+          </div>
+          <div className="col col-lg-6">
+            <button
+              className="btn btn-outline-dark mx-1"
+              onClick={handleSelectAll}
+            >
+              {selectedImages.length > 0 ? "Clear Selection" : "Select All"}
+            </button>
+            {selectedImages.length > 0 && (
+              <button
+                className="btn btn-outline-danger mx-1"
+                onClick={handleDeleteSelected}
+              >
+                Delete Selected Items
+              </button>
+            )}
+          </div>
+        </div>
       </div>
-      </label>
-    </div>
-  
-   ))}
-  
-    </div>
+      <div class="container-fluid second">
+        {imagesAll.map((item, index) => (
+          <div
+            className={`item ${
+              selectedImages.includes(item.id) ? "selected" : ""
+            }`}
+          >
+            <label className="image-label">
+              <div className="image-container">
+                <input
+                  type="checkbox"
+                  checked={selectedImages.includes(item.id)}
+                  onChange={() => handleImageClick(item.id)}
+                  style={{ display: "none" }}
+                />
+                <img
+                  className="gallery-image"
+                  src={item.imageUrl}
+                  alt=""
+                  id={item.id}
+                  draggable={true}
+                  onDragStart={(ev) => handleDrag(ev, item.id)}
+                  onDragOver={(ev) => ev.preventDefault()}
+                  onDrop={(ev) => handleDrop(ev)}
+                />
+              </div>
+            </label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 
-  function getColumnNumber(index, numColumns) {
-    return Math.floor(index / (images.length / numColumns)) + 1;
-  }
+  // function getColumnNumber(index, numColumns) {
+  //   return Math.floor(index / (images.length / numColumns)) + 1;
+  // }
 };
 
 export default Gallery;
