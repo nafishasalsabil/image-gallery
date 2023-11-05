@@ -1,6 +1,6 @@
 import "./gallery.styles.scss";
 import React, { useState, useEffect } from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+
 
 const Gallery = ({ images, handleDrag, handleDrop }) => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -149,6 +149,7 @@ const Gallery = ({ images, handleDrag, handleDrop }) => {
                     checked={selectedImages.includes(item.id)}
                     onChange={() => handleImageClick(item.id)}
                     style={{ display: "none" }}
+                    id={item.id}
                     draggable={true}
                     onDragStart={(ev) => handleDrag(ev, item.id)}
                     onDragOver={(ev) => ev.preventDefault()}

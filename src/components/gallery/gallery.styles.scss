@@ -83,7 +83,7 @@
   display: grid;
 //   height: 100vh;
   grid-gap: 10px;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   @media (max-width: 1440px) {
     grid-template-columns: auto auto auto auto;
   }
