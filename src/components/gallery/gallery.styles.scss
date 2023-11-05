@@ -13,7 +13,7 @@
     left: 1px;
     right: 1px;
     bottom: 1px;
-    border: 5px solid rgb(35, 35, 114);
+    border: 5px solid green;
 }
 
 .image-label {
@@ -30,13 +30,10 @@
     font-weight: bold;
 }
 
-.container-fluid {
-    width: 85%;
-}
+.first {}
 
 .second {
     display: grid;
-
     grid-gap: 5px;
     grid-template-columns: auto auto auto auto;
 
@@ -62,6 +59,7 @@
     background: white;
     text-align: center;
     border: 5px solid rgb(231, 231, 231);
+    display: flex;
     align-items: center;
 }
 
@@ -71,13 +69,10 @@
     position: relative;
 }
 
-.item:nth-last-child(6) {
-    grid-column-start: span 3;
-}
-
 .gallery-image {
     width: 100%;
     padding: 3em;
+    cursor: grab;
 }
 
 .item:hover {
